@@ -1,13 +1,8 @@
 <?php 
 
-require_once("../includes/braintree_init.php"); 
-
-// $result = Braintree_PaymentMethodNonce::create($token);
-
-// echo $result;
+require_once("../includes/braintree_init.php");
 
 ?>
-
 <html>
 <?php require_once("../includes/head.php"); ?>
 <body>
@@ -56,6 +51,26 @@ require_once("../includes/braintree_init.php");
 
                 <label for="cvv">CVV Code</label>
                 <input id="cvv" name="cvv"></input>
+
+                <h3>Billing Address<br>(if different from your shipping address above)</h3>
+
+                <label for="billingFirstName">First Name</label>
+                <input id="billingFirstName" name="billingFirstName"></input>
+
+                <label for="billingLastName">Last Name</label>
+                <input id="billingLastName" name="billingLastName"></input>
+
+                <label for="billingAddress">Street Address</label>
+                <input id="billingAddress" name="billingAddress"></input>
+
+                <label for="billingCity">City</label>
+                <input id="billingCity" name="billingCity"></input>
+
+                <label for="billingState">State</label>
+                <input id="billingState" name="billingState"></input>
+
+                <label for="billingPostalCode">Zip</label>
+                <input id="billingPostalCode" name="billingPostalCode"></input>
                 
                 <input type="submit" value="Create Customer" />
             </form>

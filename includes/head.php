@@ -16,6 +16,10 @@
         .input {
             height: 120px;
             width: 200px;
+            border: 0;
+        }
+        #create-form {
+            border: 0;
         }
 
     </style>

@@ -7,10 +7,23 @@ $company = $_POST["company"];
 $phone = $_POST["phone"];
 $fax = $_POST["fax"];
 $website = $_POST["website"];
-$nonce = "fake-valid-nonce";
+$email = $_POST["email"];
+$cvv = $_POST["cvv"];
+$number = $_POST["number"];
+$expirationDate = $_POST["expirationDate"];
+$billingFirstName = $_POST["billingFirstName"];
+$billingLastName = $_POST["billingLastName"];
+$billingAddress = $_POST["billingAddress"];
+$billingPostalCode = $_POST["billingPostalCode"];
+$billingCity = $_POST["billingCity"];
+$billingState = $_POST["billingState"];
+$company = $_POST["company"];
+$phone = $_POST["phone"];
 
+//$cId = substr(md5(rand()), 0, 7);
 
 $result = Braintree\Customer::create([ //take resulting customer data from form on previous page and create a variable containing all of the object's data. Call each data point with e.g. $result->customer->company, etc.
+    //'id' => $id,
     'firstName' => $firstName,
     'lastName' => $lastName,
     'company' => $company,
@@ -18,12 +31,29 @@ $result = Braintree\Customer::create([ //take resulting customer data from form 
     'phone' => $phone,
     'fax' => $fax,
     'website' => $website,
-    'paymentMethodNonce' => $nonce
+    'creditCard' => [
+        'billingAddress' => [
+            'firstName' => $billingFirstName,
+            'lastName' => $billingLastName,
+            'company' => $company,
+            'streetAddress' => $billingAddress,
+            'locality' => $billingCity,
+            'region' => $billingState,
+            'postalCode' => $billingPostalCode
+        ],
+        'cardholderName' => $firstName . "" . $lastName,
+        'number' => $number,
+        'expirationDate' => $expirationDate,
+        'cvv' => $cvv
+    ]
 ]);
 
 if ($result->success || !is_null($result->customer->id)) { //if the transaction shows as a success (success = 1) OR if the transaction results are not empty, do the following:
     $customer = $result->customer; //create a variable that contains all of the transaction result data
-    header("Location: customer.php?id=" . $customer->id); //send the user to the transaction_hosted.php page with the trsnaction id appended to the URL
+
+    $paymentMethodToken = $customer->paymentMethods[0]->token;
+
+    header("Location: customer.php?id=" . $customer->id . "&" . "paymentMethodToken=" . $paymentMethodToken); //send the user to the transaction_hosted.php page with the trsnaction id appended to the URL
 } else { //if the above conditions aren't met
     $errorString = ""; //set an empty error string variable
 
@@ -34,3 +64,5 @@ if ($result->success || !is_null($result->customer->id)) { //if the transaction 
     $_SESSION["errors"] = $errorString;
     header("Location: createCustomer.php"); //append error string above to url and send back to beginning of transaction flow to start over
 }
+
+//$paymentInfo = Braintree_PaymentMethodNonce::create($result->);
