@@ -39,9 +39,10 @@
     <script>
         var client_token = "<?php echo(Braintree\ClientToken::generate()); ?>"; /*Creates the client_token on page load. This is done with the PHP scripts on the back end*/
         braintree.setup(client_token, 'dropin', { /*uses the client token generated above and sets the "dropin" option for the transaction*/
-            container: 'bt-dropin', /*tells the javascript which HTML div to insert the fields into*/
+            //container: 'bt-dropin', /*tells the javascript which HTML div to insert the fields into*/
             form: 'payment-form', /*tells the javascript which form to pull the amount from*/
             paypal: {
+                container: 'bt-dropin';
                 singleUse: true,
                 amount: 10.00,
                 currency: 'USD'

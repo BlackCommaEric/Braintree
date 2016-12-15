@@ -1,13 +1,13 @@
 <?php 
 
-require_once("../includes/braintree_init.php");
+require_once('../includes/braintree_init.php');
 
 ?>
 <html>
-<?php require_once("../includes/head.php"); ?>
+<?php require_once('../includes/head.php'); ?>
 <body>
 
-    <?php require_once("../includes/header.php"); ?>
+    <?php require_once('../includes/header.php'); ?>
 
     <div class="wrapper">
         <div class="checkout container">
@@ -28,27 +28,18 @@ require_once("../includes/braintree_init.php");
 
                 <label for="onceperyear">Bill me once per year - $85 each billing</label>
                 <input type="radio" name="planId" value="b88b"></input>
+
+                <input type="text" name="cId" value="36959400">
                 
                 <input type="submit" value="Subscribe" />
             </form>
 
-            <script src="https://js.braintreegateway.com/js/braintree-2.29.0.min.js"></script>
+            <script src='https://js.braintreegateway.com/js/braintree-2.29.0.min.js'></script>
             <script>
-            var client_authorization = "<?php echo(Braintree\ClientToken::generate()); ?>";
-            braintree.setup(client_authorization, "custom", {
-                id: "subscribe-form",
-                styles: {
-                    '#card-number': {
-                        'font-size': '13pt',
-                        'line-height': '35px'
-                    },
-                    'input.invalid': {
-                        'color': 'red'
-                    },
-                    'input.valid': {
-                        'color': 'green'
-                    }
-                }
+            var client_authorization = '<?php echo(Braintree\ClientToken::generate()); ?>';
+            braintree.setup(client_authorization, 'custom', {
+                id: 'subscribe-form'
+                customerId: '';
             });
             </script>
         </div>

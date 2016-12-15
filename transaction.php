@@ -1,12 +1,11 @@
 <html>
-<?php require_once("includes/head.php"); ?>
+<?php require_once("bootstrap.php"); ?>
 <body>
 
 <?php
-    require_once("lib/Braintree.php");
-    require_once("includes/header.php");
+    
     if (isset($_GET["id"])) {
-        $transaction = Braintree\Transaction::find($_GET["id"]);
+        $success = Braintree\Transaction::find($_GET["id"]);
 
         $transactionSuccessStatuses = [
             Braintree\Transaction::AUTHORIZED,
