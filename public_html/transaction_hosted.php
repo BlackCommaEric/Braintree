@@ -19,7 +19,7 @@
         ];
 
         if (in_array($transaction->status, $transactionSuccessStatuses)) { //if the transaction's status ($transaction->status) matches one of the $transactionSuccessStatuses above, use the following information for the page's HTML:
-            $header = "Sweet Success!";
+            $header = "Success!";
             $icon = "success";
             $message = "Your test transaction has been successfully processed. See the Braintree API response and try again.";
         } else { //if the transaction's status does not macth one of the $transactionSuccessStatuses above, use the following information for the page's HTML:
@@ -34,7 +34,6 @@
     <div class="response container">
         <div class="content">
             <div class="icon">
-            <!-- <img src="/images/<?php echo($icon)?>.svg" alt=""> -->
             </div>
 
             <h1><?php echo($header)?></h1>

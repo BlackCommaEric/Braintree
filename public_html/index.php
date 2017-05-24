@@ -45,7 +45,6 @@
             paypal: {
                 container: 'bt-dropin',
                 singleUse: false,
-                billingAgreementDescription: 'Desciption goes here',
                 amount: 10.00,
                 currency: 'USD',
                 displayName: 'Store',
@@ -59,7 +58,7 @@
                     postalCode: '60652',
                     region: 'IL',
                     phone: '123.456.7890',
-                    editable: false
+                    editable: true
                 }
             }
         });

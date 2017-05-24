@@ -4,11 +4,8 @@
 <?php require_once('../includes/head.php'); ?>
 <body>
   <form action='checkout_hosted.php' method='post' id='cardForm'>
-    <label class='hosted-fields--label' for='firstName'>First Name</label>
-    <input type='text' id='firstName' name='firstName' class='hosted-field'></div>
-
-    <label class='hosted-fields--label' for='lastName'>Last Name</label>
-    <input type='text' id='lastName' name='lastName' class='hosted-field'></div>
+    <label class='hosted-fields--label' for='name'>Name</label>
+    <input type='text' id='name' class='hosted-field'></div>
 
     <label class='hosted-fields--label' for='amount'>Amount</label>
     <input type='text' id='amount' name='amount' class='hosted-field'></div>
@@ -21,9 +18,6 @@
 
     <label class='hosted-fields--label' for='cvv'>CVV</label>
     <div id='cvv' class='hosted-field'></div>
-
-    <label class='hosted-fields--label' for='postal-code'>Postal Code</label>
-    <div id='postal-code' class='hosted-field'></div>
 
     <div class='button-container'>
     <input type='submit' class='button button--small button--green' value='Purchase' id='submit'/>
@@ -48,9 +42,6 @@ var client_authorization = '<?php echo(Braintree\ClientToken::generate()); ?>';
       expirationDate: {
         selector: '#expiration-date',
         placeholder: 'MM/YY'
-      },
-      postalCode: {
-        selector: '#postal-code'
       },
       styles: {
         'input': {

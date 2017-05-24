@@ -1,17 +1,4 @@
-<!-- <header class="main">
-    <div class="container wide">
-        <div class="content slim">
-            <div class="set">
-                <div class="fill">
-                    <a class="pseudoshop" href="/">PSEUDO<strong>SHOP</strong></a>
-                </div>
-
-                <div class="fit">
-                    <a class="braintree" href="https://developers.braintreepayments.com/guides/drop-in" target="_blank">Braintree</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <div class="notice-wrapper">
         <?php if(isset($_SESSION["errors"])) : ?>
