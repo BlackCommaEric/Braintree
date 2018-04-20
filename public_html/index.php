@@ -26,6 +26,7 @@
                         <span class="input-label">Amount</span>
                         <div class="input-wrapper amount-wrapper">
                             <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                            <input id="returnUrl" name="return_url" type="hidden" />
                         </div>
                     </label>
                 </section>
@@ -38,7 +39,8 @@
     <script src="https://js.braintreegateway.com/js/braintree-2.29.0.min.js"></script> <!--Uses Braintree.js-->
     <script src="https://js.braintreegateway.com/web/3.5.0/js/paypal.min.js"></script>
     <script>
-        var client_token = "<?php echo(Braintree\ClientToken::generate()); ?>"; /*Creates the client_token on page load. This is done with the PHP scripts on the back end*/
+        var client_token = "<?php echo($gateway->ClientToken()->generate()); ?>"; /*Creates the client_token on page load. This is done with the PHP scripts on the back end*/
+        var url = document.querySelector('#returnUrl').value = location.href.split("/").slice(-1);
         braintree.setup(client_token, 'dropin', { /*uses the client token generated above and sets the "dropin" option for the transaction*/
             container: 'bt-dropin', /*tells the javascript which HTML div to insert the fields into*/
             form: 'payment-form', /*tells the javascript which form to pull the amount from*/

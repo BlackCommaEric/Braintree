@@ -1,6 +1,10 @@
 <html>
 <?php require_once("../includes/head.php"); ?>
 <?php require_once("../includes/braintree_init.php"); ?>
+<?php 
+$url = $_SESSION['url'];
+?>
+
 <body>
 
 <?php
@@ -42,7 +46,7 @@
                 <p><?php echo($message)?></p>
             </section>
             <section>
-                <a class="button primary back" href="index.php">
+                <a class="button primary back" href="<?php echo($url)?>">
                     <span>Test Another Transaction</span>
                 </a>
             </section>
@@ -97,8 +101,8 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td>token</td>
-                        <td><?php echo($transaction->creditCardDetails->token)?></td>
+                        <td>Return URL</td>
+                        <td><?php echo($url)?></td>
                     </tr>
                     <tr>
                         <td>bin</td>

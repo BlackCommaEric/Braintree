@@ -1,6 +1,7 @@
 <html>
 
-<?php require("lib/Braintree.php"); ?>
+
+<?php require("includes/braintree_init.php"); ?>
 
 <head>
 	

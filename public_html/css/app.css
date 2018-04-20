@@ -1007,7 +1007,7 @@ header.main {
   border-bottom: solid 1px #DEE2E5; }
   @media (min-width: 1025px) {
     header.main {
-      background-color: transparent;
+      /*background-color: transparent;*/
       border-bottom: none; } }
 
 header {
@@ -1364,8 +1364,8 @@ label {
     opacity: 1; }
 
 input {
-  background-color: transparent;
-  display: block;
+/*  background-color: transparent;
+*/  display: block;
   border: none;
   color: #000;
   cursor: pointer;

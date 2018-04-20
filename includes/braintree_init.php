@@ -2,7 +2,9 @@
 session_start();
 require_once("../vendor/autoload.php");
 
-Braintree\Configuration::environment(getenv('BT_ENVIRONMENT'));
-Braintree\Configuration::merchantId(getenv('BT_MERCHANT_ID'));
-Braintree\Configuration::publicKey(getenv('BT_PUBLIC_KEY'));
-Braintree\Configuration::privateKey(getenv('BT_PRIVATE_KEY'));
+$gateway = new Braintree_Gateway([
+    'environment' => 'sandbox',
+    'merchantId' => 's3mj6vssjy3tfsn7',
+    'publicKey' => 'bj94n2qqxp4chcwm',
+    'privateKey' => '00ba9b602a9f536e9c6ac094f57a65d2'
+]);

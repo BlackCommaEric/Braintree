@@ -1,4 +1,5 @@
 <?php require_once("../includes/braintree_init.php"); ?>
+<?php require("../lib/Braintree.php"); ?>
 
 <html>
 <?php require_once("../includes/head.php"); ?>
@@ -43,9 +44,11 @@
             form: 'payment-form', /*tells the javascript which form to pull the amount from*/
             paypal: {
                 container: 'bt-dropin';
-                singleUse: true,
+                billingAgreementDescription: 'Description',
+                singleUse: false,
                 amount: 10.00,
-                currency: 'USD'
+                currency: 'USD',
+                displayName: 'Woot!'
             }
         });
     </script>
